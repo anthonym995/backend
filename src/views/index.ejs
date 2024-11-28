@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Node.js App</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        customBlue: '#1e3a8a', // Custom Blue Color
+                    },
+                },
+            },
+        };
+    </script>
+
+</head>
+
+<body class="bg-gray-50 text-gray-900">
+
+    <!-- Header Section -->
+    <header class="bg-white shadow-md py-4">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0">
+                    <h1 class="text-3xl font-bold text-blue-600">Project X</h1>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-4">
+                    <a href="/" class="text-lg font-medium text-gray-700 hover:text-blue-500">Home</a>
+                    <a href="/about" class="text-lg font-medium text-gray-700 hover:text-blue-500">About</a>
+                    <a href="#" class="text-lg font-medium text-gray-700 hover:text-blue-500">Docs</a>
+                </div>
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-gray-700 hover:text-blue-500 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg"
+                            viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md">
+            <div class="px-4 py-2 space-y-2">
+                <a href="/" class="block text-lg font-medium text-gray-700 hover:text-blue-500">Home</a>
+                <a href="/about" class="block text-lg font-medium text-gray-700 hover:text-blue-500">About</a>
+                <a href="#" class="block text-lg font-medium text-gray-700 hover:text-blue-500">Docs</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="py-16 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
+                    Welcome to My Node.js App
+                </h2>
+                <p class="text-lg text-gray-700 mb-8">
+                    This is the home page styled with <span class="font-semibold text-blue-500">Tailwind CSS</span>.
+                    Let's build something amazing together!
+                </p>
+                <a href="/about"
+                    class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 text-lg font-medium">
+                    Go to About Page
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Features Section -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-3xl font-extrabold text-gray-900 mb-6">Key Features</h3>
+                <p class="text-lg text-gray-700 mb-8">Here are some of the standout features of our app:</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Feature One</h4>
+                    <p class="text-gray-700">A short description of the first feature of your app. It offers great
+                        value!</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Feature Two</h4>
+                    <p class="text-gray-700">A short description of the second feature of your app. It helps users
+                        achieve something amazing.</p>
+                </div>
+                <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
+                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Feature Three</h4>
+                    <p class="text-gray-700">A short description of the third feature of your app. It is designed to
+                        improve efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 bg-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h3 class="text-3xl font-extrabold text-gray-900 mb-6">What Our Users Are Saying</h3>
+                <p class="text-lg text-gray-700 mb-8">Here's some feedback from our users:</p>
+            </div>
+            <div class="flex flex-wrap justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-xs">
+                    <p class="text-lg text-gray-700 mb-4">"This app has changed the way I work. It's super intuitive and
+                        easy to use!"</p>
+                    <p class="text-gray-900 font-semibold">John Doe</p>
+                    <p class="text-gray-600">Developer</p>
+                </div>
+                <div class="bg-white p-6 rounded-lg shadow-lg max-w-xs">
+                    <p class="text-lg text-gray-700 mb-4">"An excellent tool for our team. It helped us improve
+                        productivity and collaboration."</p>
+                    <p class="text-gray-900 font-semibold">Jane Smith</p>
+                    <p class="text-gray-600">Project Manager</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action Section -->
+    <section class="py-16 bg-blue-600 text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h3 class="text-3xl font-extrabold mb-6">Ready to Get Started?</h3>
+            <p class="text-lg mb-8">Join thousands of others and start building with our Node.js app today!</p>
+            <a href="/signup"
+                class="inline-block bg-blue-800 text-white px-8 py-4 rounded-md hover:bg-blue-900 text-lg font-medium">
+                Sign Up Now
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-white border-t py-6">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm text-gray-600">
+                &copy; 2024 My Node.js App. All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
