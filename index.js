@@ -2,12 +2,19 @@
 const express = require("express");
 const path = require("path");
 const dotenv = require("dotenv");
-const cors = require("cors");
+
+const swaggerJsdoc = require("swagger-jsdoc");
+const swaggerUi = require("swagger-ui-express");
+const swaggerOptions = require("./src/config/swaggerOptions");
 
 // Initialize app and configure dotenv
 dotenv.config();
 const app = express(); // Initialize the app
 const port = process.env.PORT || 3000;
+const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Serve Swagger UI
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Import user routes
 const userRoutes = require("./src/routes/userRoutes");
@@ -15,9 +22,6 @@ const userRoutes = require("./src/routes/userRoutes");
 // Setup view engine
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "src", "views")); // Ensure path is correct
-
-// Enable CORS (optional)
-// app.use(cors());
 
 // Serve static files (if needed)
 app.use(express.static(path.join(__dirname, "public")));
