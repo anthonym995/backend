@@ -12,11 +12,9 @@ dotenv.config();
 const app = express(); // Initialize the app
 const port = process.env.PORT || 3000;
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
+const CSS_URL = "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 
-// Serve Swagger UI
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
-
-// Import user routes
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec, { customCssUrl: CSS_URL }));
 const userRoutes = require("./src/routes/userRoutes");
 
 // Setup view engine

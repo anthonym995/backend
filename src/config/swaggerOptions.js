@@ -8,7 +8,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: process.env.API_HOST || "http://localhost:3000",
+        url: "https://nodejs-x.vercel.app/",
       },
     ],
   },
