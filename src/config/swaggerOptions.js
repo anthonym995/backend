@@ -8,7 +8,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "http://localhost:3000", // Your API base URL
+        url: process.env.API_HOST || "http://localhost:3000",
       },
     ],
   },
