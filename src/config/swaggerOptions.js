@@ -1,10 +1,15 @@
+const userSchema = require("./userSchema");
+
 const swaggerOptions = {
   definition: {
     openapi: "3.0.0", // Swagger specification version
     info: {
-      title: "My API",
+      title: "Project-x",
       version: "1.0.0",
       description: "API Documentation",
+    },
+    components: {
+      schemas: userSchema,
     },
     servers: [
       {

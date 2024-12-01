@@ -1,16 +1,16 @@
-const users = require("../data/users");
+const mongoose = require("mongoose");
 
-// Get all users
-const getAllUsers = () => {
-  return users;
-};
+// Define the schema for a user
+const userSchema = new mongoose.Schema({
+  id: { type: Number, required: true, unique: true },
+  name: { type: String, required: true },
+  email: { type: String, required: true, unique: true },
+  phone: { type: String, required: true },
+  address: { type: String, required: true },
+  role: { type: String, required: true, enum: ["Admin", "User"] },
+});
 
-// Find user by ID
-const getUserById = (id) => {
-  return users.find((user) => user.id === id);
-};
+// Create the model
+const User = mongoose.model("User", userSchema);
 
-module.exports = {
-  getAllUsers,
-  getUserById,
-};
+module.exports = User;
