@@ -17,7 +17,7 @@ const swaggerSpec = swaggerJsdoc(swaggerOptions);
 const userRoutes = require("./src/routes/userRoutes");
 
 app.use(cors(corsOptions));
-app.use("/swagger-static", swaggerUi.serveFiles(swaggerSpec, {}));
+app.use("/swagger-static", express.static(path.join(__dirname, "node_modules", "swagger-ui-dist")));
 app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Setup view engine
 app.set("view engine", "ejs");
