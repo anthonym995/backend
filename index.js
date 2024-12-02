@@ -1,4 +1,5 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require("path");
 const dotenv = require("dotenv");
 const cors = require("cors");
@@ -11,12 +12,15 @@ const corsOptions = require("./src/config/corsConfig");
 const userRoutes = require("./src/routes/userRoutes");
 
 dotenv.config(); // Load environment variables
-
 const app = express();
 const port = process.env.PORT || 3000;
 
 // Set up Swagger
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
+
+// Middleware to parse JSON request bodies
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // Middleware
 app.use(cors(corsOptions));

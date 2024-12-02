@@ -4,6 +4,10 @@ const userSchema = {
   User: {
     type: "object",
     properties: {
+      uuid: {
+        type: "string",
+        description: "The uuid of the user",
+      },
       name: {
         type: "string",
         description: "The name of the user",

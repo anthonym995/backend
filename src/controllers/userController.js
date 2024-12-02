@@ -15,9 +15,10 @@ const getUsers = async (req, res) => {
 
 // Get a user by ID
 const getUserById = async (req, res) => {
-  const { id } = req.params;
+  const { uuid } = req.params;
+  console.log(uuid, "uuid of the object");
   try {
-    const user = await User.findOne({ id: parseInt(id, 10) });
+    const user = await User.findOne({ uuid });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -33,18 +34,24 @@ const createUser = async (req, res) => {
     const { name, email, phone, address, role } = req.body;
 
     // Validate required fields
-    if (!name || !email) {
-      return res.status(400).json({ message: "Name and email are required." });
+    if (!name || !email || !phone || !address || !role) {
+      return res.status(400).json({ message: "All fields are required." });
     }
-    const id = uuidv4(); // Generate a unique ID for the user
 
-    // Create a new user in the database
-    const newUser = new User({ id, name, email, phone, address, role });
+    // Generate a unique UUID for the user
+    const uuid = uuidv4();
+    console.log(`Generated UUID: ${uuid}`);
+
+    // Create a new user object
+    const newUser = new User({ uuid, name, email, phone, address, role });
+
+    // Save the user to the database
     const savedUser = await newUser.save();
 
-    res.status(201).json(savedUser); // Respond with the created user
+    // Send response with the created user
+    res.status(201).json(savedUser);
   } catch (error) {
-    console.error(error);
+    console.error("Error creating user:", error);
     res.status(500).json({ message: "Server error" });
   }
 };

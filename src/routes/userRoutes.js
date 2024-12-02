@@ -23,17 +23,17 @@ router.get("/", userController.getUsers); // Get all users
 
 /**
  * @swagger
- * /api/users/{id}:
+ * /api/users/{uuid}:
  *   get:
- *     summary: Get a user by ID
- *     description: Retrieves a single user by their unique ID
+ *     summary: Get a user by UUID
+ *     description: Retrieves a single user by their unique UUID
  *     parameters:
  *       - in: path
- *         name: id
+ *         name: uuid
  *         required: true
- *         description: The ID of the user
+ *         description: The UUID of the user
  *         schema:
- *           type: integer
+ *           type: string
  *     responses:
  *       200:
  *         description: A user object
@@ -44,7 +44,7 @@ router.get("/", userController.getUsers); // Get all users
  *       404:
  *         description: User not found
  */
-router.get("/:id", userController.getUserById);
+router.get("/:uuid", userController.getUserById);
 
 /**
  * @swagger

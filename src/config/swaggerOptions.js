@@ -15,6 +15,9 @@ const swaggerOptions = {
       {
         url: "https://nodejs-x.vercel.app/",
       },
+      {
+        url: "http://localhost:3000", // Local development server
+      },
     ],
   },
   apis: ["./src/routes/*.js"], // Path to your API route files
