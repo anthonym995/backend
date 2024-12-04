@@ -34,7 +34,7 @@
                 <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-4">
                     <a href="/" class="text-lg font-medium text-gray-700 hover:text-blue-500">Home</a>
-                    <a href="/about" class="text-lg font-medium text-gray-700 hover:text-blue-500">About</a>
+                    <a href="#feature" class="text-lg font-medium text-gray-700 hover:text-blue-500">Features</a>
                     <a href="/api-docs" class="text-lg font-medium text-gray-700 hover:text-blue-500">Docs</a>
                 </div>
                 <!-- Mobile Menu Button -->
@@ -52,7 +52,7 @@
         <div id="mobile-menu" class="md:hidden hidden bg-white shadow-md">
             <div class="px-4 py-2 space-y-2">
                 <a href="/" class="block text-lg font-medium text-gray-700 hover:text-blue-500">Home</a>
-                <a href="/about" class="block text-lg font-medium text-gray-700 hover:text-blue-500">About</a>
+                <a href="#feature" class="block text-lg font-medium text-gray-700 hover:text-blue-500">Features</a>
                 <a href="/api-docs" class="block text-lg font-medium text-gray-700 hover:text-blue-500">Docs</a>
             </div>
         </div>
@@ -61,68 +61,112 @@
     <!-- Main Content Section -->
     <main class="py-16 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h2 class="text-4xl font-extrabold text-gray-900 mb-4">
-                    Welcome to My Node.js App
-                </h2>
-                <p class="text-lg text-gray-700 mb-8">
-                    This is the home page styled with <span class="font-semibold text-blue-500">Tailwind CSS</span>.
-                    Let's build something amazing together!
-                </p>
-                <a href="/api-docs"
-                    class="inline-block bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 text-lg font-medium">
-                    Documentations
-                </a>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 py-16">
+                <!-- Left Column -->
+                <div class="flex flex-col justify-center items-center md:items-start text-center md:text-left">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-6">
+                        Welcome to Our Backend API
+                    </h2>
+                    <p class="text-lg text-gray-700 mb-8 max-w-lg">
+                        Explore our powerful API with endpoints for <span class="font-semibold text-blue-500">User
+                            Management</span>,
+                        <span class="font-semibold text-blue-500">Product Catalog</span>, <span
+                            class="font-semibold text-blue-500">Blog Management</span>, and
+                        <span class="font-semibold text-blue-500">Authentication</span>. Start building and integrating
+                        with our
+                        platform today!
+                    </p>
+                    <a href="/api-docs"
+                        class="inline-block bg-blue-600 text-white px-8 py-4 rounded-md hover:bg-blue-700 text-lg font-medium transition duration-300 ease-in-out">
+                        Explore API Docs
+                    </a>
+                </div>
+
+                <!-- Right Column with SVG Illustration -->
+                <div class="flex justify-center items-center">
+                    <img src="/images/undraw_process_re_gws7.svg" alt="User Management Illustration"
+                        class="w-full md:w-[450px] h-auto object-contain">
+                </div>
             </div>
+
         </div>
     </main>
 
     <!-- Features Section -->
-    <section class="py-16 bg-white">
+    <section id="feature" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-3xl font-extrabold text-gray-900 mb-6">Key Features</h3>
-                <p class="text-lg text-gray-700 mb-8">Here are some of the standout features of our app:</p>
+            <div class="text-center mb-12">
+                <h3 class="text-3xl font-extrabold text-gray-900 mb-6">Explore the Power of Our API Endpoints</h3>
+                <p class="text-lg text-gray-700">Dive into the core features of our application with the user, product,
+                    blog, and authentication endpoints to practice and build robust API integrations.</p>
             </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
-                <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Feature One</h4>
-                    <p class="text-gray-700">A short description of the first feature of your app. It offers great
-                        value!</p>
+            <div class="space-y-20">
+                <!-- Feature One: User Endpoint -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">User Management</h4>
+                        <p class="text-gray-700">Efficiently manage user data with our user endpoint. Create, update,
+                            delete, and retrieve user information, including roles, contact details, and personal data.
+                        </p>
+                        <p class="text-gray-500 text-sm mt-2">Start exploring by interacting with the user data. Check
+                            the
+                            Swagger docs for full details.</p>
+                    </div>
+                    <div>
+                        <img src="/images/undraw_mobile_user_re_xta4.svg" alt="User Management Illustration"
+                            class="w-full h-auto">
+                    </div>
                 </div>
-                <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Feature Two</h4>
-                    <p class="text-gray-700">A short description of the second feature of your app. It helps users
-                        achieve something amazing.</p>
+                <!-- Feature Two: Product Endpoint -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="lg:order-last">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Product Management</h4>
+                        <p class="text-gray-700">Manage your product catalog effortlessly. Add, update, and remove
+                            products
+                            while tracking inventory, pricing, and categories for an optimal shopping experience.</p>
+                        <p class="text-gray-500 text-sm mt-2">Explore the product endpoints for full API functionalities
+                            and
+                            seamless product management.</p>
+                    </div>
+                    <div>
+                        <img src="/images/undraw_product_iteration_kjok.svg" alt="Product Management Illustration"
+                            class="w-full h-auto">
+                    </div>
                 </div>
-                <div class="bg-blue-50 p-6 rounded-lg shadow-lg">
-                    <h4 class="text-xl font-semibold text-gray-900 mb-2">Feature Three</h4>
-                    <p class="text-gray-700">A short description of the third feature of your app. It is designed to
-                        improve efficiency.</p>
+                <!-- Feature Three: Blog Endpoint -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Blog Content</h4>
+                        <p class="text-gray-700">Our blog endpoint empowers you to create and manage blog content with
+                            ease.
+                            Fetch posts, create new ones, and manage the publication status of your articles for maximum
+                            engagement.</p>
+                        <p class="text-gray-500 text-sm mt-2">Explore how to create, retrieve, and manage blog content
+                            through the Swagger API documentation.</p>
+                    </div>
+                    <div>
+                        <img src="/images/undraw_blogging_re_kl0d.svg" alt="Blog Content Illustration"
+                            class="w-full h-auto">
+                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials Section -->
-    <section class="py-16 bg-gray-100">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center">
-                <h3 class="text-3xl font-extrabold text-gray-900 mb-6">What Our Users Are Saying</h3>
-                <p class="text-lg text-gray-700 mb-8">Here's some feedback from our users:</p>
-            </div>
-            <div class="flex flex-wrap justify-center space-y-8 md:space-y-0 md:space-x-8">
-                <div class="bg-white p-6 rounded-lg shadow-lg max-w-xs">
-                    <p class="text-lg text-gray-700 mb-4">"This app has changed the way I work. It's super intuitive and
-                        easy to use!"</p>
-                    <p class="text-gray-900 font-semibold">John Doe</p>
-                    <p class="text-gray-600">Developer</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg max-w-xs">
-                    <p class="text-lg text-gray-700 mb-4">"An excellent tool for our team. It helped us improve
-                        productivity and collaboration."</p>
-                    <p class="text-gray-900 font-semibold">Jane Smith</p>
-                    <p class="text-gray-600">Project Manager</p>
+                <!-- Feature Four: Authentication Flow -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="lg:order-last">
+                        <h4 class="text-xl font-semibold text-gray-900 mb-2">Authentication Flow</h4>
+                        <p class="text-gray-700">Our authentication flow allows users to securely sign up and sign in to
+                            your application. After successful registration, users will receive a confirmation email,
+                            and
+                            upon sign-in, they will receive a JWT token to access protected API endpoints.</p>
+                        <p class="text-gray-500 text-sm mt-2">Use the <code>POST /signup</code> method for registration
+                            and
+                            <code>POST /signin</code> for authentication. Check the Swagger docs for detailed usage and
+                            integration steps.
+                        </p>
+                    </div>
+                    <div>
+                        <img src="/images/undraw_secure_login_pdn4.svg" alt="Authentication Flow Illustration"
+                            class="w-full h-auto">
+                    </div>
                 </div>
             </div>
         </div>
@@ -132,13 +176,17 @@
     <section class="py-16 bg-blue-600 text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h3 class="text-3xl font-extrabold mb-6">Ready to Get Started?</h3>
-            <p class="text-lg mb-8">Join thousands of others and start building with our Node.js app today!</p>
-            <a href="/signup"
+            <p class="text-lg mb-8">Explore the power of our backend API and start building your next project today!
+                Connect
+                with our seamless endpoints and boost your development workflow.</p>
+            <a href="https://dboard-x.vercel.app/"
                 class="inline-block bg-blue-800 text-white px-8 py-4 rounded-md hover:bg-blue-900 text-lg font-medium">
-                Sign Up Now
+                Visit Our Frontend App
             </a>
         </div>
     </section>
+
+
 
     <!-- Footer Section -->
     <footer class="bg-white border-t py-6">
