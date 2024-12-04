@@ -57,7 +57,7 @@ router.get("/:uuid", userController.getUserById);
  *       content:
  *         application/json:
  *           schema:
- *             $ref: '#/components/schemas/User'
+ *             $ref: '#/components/schemas/UserRequest'
  *     responses:
  *       201:
  *         description: User created successfully

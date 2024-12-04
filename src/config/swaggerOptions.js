@@ -13,10 +13,7 @@ const swaggerOptions = {
     },
     servers: [
       {
-        url: "https://nodejs-x.vercel.app/",
-      },
-      {
-        url: "http://localhost:3000", // Local development server
+        url: process.env.API_HOST || "http://localhost:3000", // Dynamically set the server URL based on the environment
       },
     ],
   },
