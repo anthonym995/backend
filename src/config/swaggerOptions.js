@@ -11,11 +11,11 @@ const swaggerOptions = {
     components: {
       schemas: userSchema,
     },
-    servers: [
-      {
-        url: process.env.API_HOST || "http://localhost:3000", // Dynamically set the server URL based on the environment
-      },
-    ],
+    // servers: [
+    //   {
+    //     url: process.env.API_HOST || "http://localhost:3000", // Dynamically set the server URL based on the environment
+    //   },
+    // ],
   },
   apis: ["./src/routes/*.js"], // Path to your API route files
 };
