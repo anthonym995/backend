@@ -16,7 +16,6 @@ const getUsers = async (req, res) => {
 // Get a user by ID
 const getUserById = async (req, res) => {
   const { uuid } = req.params;
-  console.log(uuid, "uuid of the object");
   try {
     const user = await User.findOne({ uuid });
     if (!user) {
@@ -56,4 +55,49 @@ const createUser = async (req, res) => {
   }
 };
 
-module.exports = { getUsers, getUserById, createUser };
+// Update a user by UUID
+const updateUser = async (req, res) => {
+  const { uuid } = req.params;
+  const { name, email, phone, address, role } = req.body;
+
+  try {
+    const user = await User.findOne({ uuid });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Update user fields
+    if (name) user.name = name;
+    if (email) user.email = email;
+    if (phone) user.phone = phone;
+    if (address) user.address = address;
+    if (role) user.role = role;
+
+    // Save the updated user
+    const updatedUser = await user.save();
+
+    res.status(200).json(updatedUser);
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
+// Delete a user by UUID
+const deleteUser = async (req, res) => {
+  const { uuid } = req.params;
+
+  try {
+    const user = await User.findOneAndDelete({ uuid });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.status(200).json({ message: "User deleted successfully" });
+  } catch (error) {
+    console.error("Error deleting user:", error);
+    res.status(500).json({ message: "Server error", error });
+  }
+};
+
+module.exports = { getUsers, getUserById, createUser, updateUser, deleteUser };
