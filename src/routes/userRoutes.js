@@ -1,6 +1,6 @@
 const express = require("express");
 const userController = require("../controllers/userController");
-
+const validateUser = require("../middleware/validateUser");
 const router = express.Router();
 
 /**
@@ -68,7 +68,7 @@ router.get("/:uuid", userController.getUserById);
  *       400:
  *         description: Bad request
  */
-router.post("/", userController.createUser); // Create a new user
+router.post("/", validateUser, userController.createUser); // Create a new user
 
 /**
  * @swagger

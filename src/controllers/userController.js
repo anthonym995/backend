@@ -1,6 +1,7 @@
 const { v4: uuidv4 } = require("uuid"); // Import the uuid library
 const userModel = require("../models/userModel");
 const User = require("../models/userModel");
+const validateUser = require("../middleware/validateUser");
 
 // Get all users
 const getUsers = async (req, res) => {
