@@ -9,8 +9,8 @@ const validateUser = [
   body("role")
     .notEmpty()
     .withMessage("Role is required")
-    .isIn(["Admin", "User"])
-    .withMessage("Role must be either 'Admin' or 'User'"),
+    .isIn(["admin", "user"])
+    .withMessage("Role must be either 'admin' or 'user'"),
 
   (req, res, next) => {
     const errors = validationResult(req);

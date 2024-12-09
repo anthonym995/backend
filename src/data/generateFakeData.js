@@ -1,7 +1,7 @@
 // index.js or your main script
 const { connectDB } = require("./db");
 const User = require("../models/userModel");
-const Product = require("../models/productModel");
+// const Product = require("../models/productModel");
 const mongoose = require("mongoose");
 
 const { generateFakeUsers } = require("./fakeUserData");
