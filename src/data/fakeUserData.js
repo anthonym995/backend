@@ -11,9 +11,7 @@ function generateFakeUsers(count = 10) {
     const pictureNumber = faker.number.int({ min: 1, max: 99 });
 
     // Profile picture URL based on gender
-    const profilePicture = `https://randomuser.me/api/portraits/${
-      gender === "male" ? "men" : "women"
-    }/${pictureNumber}.jpg`;
+    const image = `https://randomuser.me/api/portraits/${gender === "male" ? "men" : "women"}/${pictureNumber}.jpg`;
 
     return {
       uuid: faker.string.uuid(),
@@ -23,7 +21,7 @@ function generateFakeUsers(count = 10) {
       address: faker.location.streetAddress(),
       role: faker.helpers.arrayElement(["admin", "user"]),
       bio: faker.person.bio(),
-      profilePicture,
+      image,
     };
   });
 }

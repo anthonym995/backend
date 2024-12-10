@@ -16,7 +16,7 @@ const userSchema = {
       address: createStringProperty("The address of the user"),
       role: createStringProperty("The role of the user (admin/user)"),
       bio: createStringProperty("A short biography of the user"),
-      profilePicture: createStringProperty("The URL of the user's profile picture"),
+      image: createStringProperty("The URL of the user's profile picture"),
     },
     required: ["name", "email", "phone", "address", "role"], // uuid is not required for the request
   },
@@ -29,7 +29,7 @@ const userSchema = {
       address: createStringProperty("The address of the user"),
       role: createStringProperty("The role of the user (Admin/User)"),
       bio: createStringProperty("A short biography of the user"),
-      profilePicture: createStringProperty("The URL of the user's profile picture"),
+      image: createStringProperty("The URL of the user's profile picture"),
     },
     required: ["name", "email", "phone", "address", "role"], // uuid is not part of the request
   },
