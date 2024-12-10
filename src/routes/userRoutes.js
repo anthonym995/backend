@@ -68,7 +68,7 @@ router.get("/:uuid", userController.getUserById);
  *       400:
  *         description: Bad request
  */
-router.post("/", validateUser, userController.createUser); // Create a new user
+router.post("/", validateUser(false), userController.createUser); // Create a new user
 
 /**
  * @swagger

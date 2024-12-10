@@ -37,10 +37,11 @@ const validateUser = (isUpdate = false) => {
       .withMessage("Role must be either 'admin' or 'user'"),
 
     body("bio").optional().isString().withMessage("Bio must be a string"),
-    body("profilePicture").optional().isURL().withMessage("Profile picture must be a valid URL"),
+    body("image").optional().isURL().withMessage("Profile picture must be a valid URL"),
 
     (req, res, next) => {
       const errors = validationResult(req);
+      console.log(errors.array());
       if (!errors.isEmpty()) {
         return res.status(400).json({ errors: errors.array() });
       }

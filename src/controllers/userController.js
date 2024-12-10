@@ -1,10 +1,11 @@
 const { v4: uuidv4 } = require("uuid"); // Import the uuid library
 const userModel = require("../models/userModel");
 const User = require("../models/userModel");
-const validateUser = require("../middleware/validateUser");
+const validateUser = require("../middleware/validateUser")
 
 // Get all users
 const getUsers = async (req, res) => {
+  console.log("getuser called");
   try {
     const users = await User.find(); // Fetch all users from the database
     res.status(200).json(users);
@@ -16,6 +17,7 @@ const getUsers = async (req, res) => {
 
 // Get a user by ID
 const getUserById = async (req, res) => {
+  console.log("getuser by uuid called");
   const { uuid } = req.params;
   try {
     const user = await User.findOne({ uuid });
@@ -30,6 +32,7 @@ const getUserById = async (req, res) => {
 };
 
 const createUser = async (req, res) => {
+  console.log("Received create user request");
   try {
     const { name, email, phone, address, role, bio, image } = req.body;
 
@@ -43,7 +46,7 @@ const createUser = async (req, res) => {
     console.log(`Generated UUID: ${uuid}`);
 
     // Create a new user object
-    const newUser = new User({ uuid, name, email, phone, address, role, bio: bio || "", profilePicture: image || "" });
+    const newUser = new User({ uuid, name, email, phone, address, role, bio: bio || "", image: image || "" });
 
     // Save the user to the database
     const savedUser = await newUser.save();
@@ -58,6 +61,7 @@ const createUser = async (req, res) => {
 
 // Update a user by UUID
 const updateUser = async (req, res) => {
+  console.log("update users called");
   const { uuid } = req.params;
   const { name, email, phone, address, role, bio, image } = req.body;
 
@@ -74,7 +78,7 @@ const updateUser = async (req, res) => {
     if (address) user.address = address;
     if (role) user.role = role;
     if (bio) user.bio = bio || "";
-    if (image) user.image = image;
+    if (image) user.image = image || "";
 
     // Save the updated user
     const updatedUser = await user.save();
@@ -88,6 +92,7 @@ const updateUser = async (req, res) => {
 
 // Delete a user by UUID
 const deleteUser = async (req, res) => {
+  console.log("delete user called");
   const { uuid } = req.params;
 
   try {
