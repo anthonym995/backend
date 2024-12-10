@@ -100,7 +100,7 @@ router.post("/", validateUser, userController.createUser); // Create a new user
  *         description: User not found
  */
 
-router.put("/:uuid", userController.updateUser); // Update a user
+router.put("/:uuid", validateUser(true), userController.updateUser); // Update a user
 
 /**
  * @swagger

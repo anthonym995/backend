@@ -31,7 +31,7 @@ const getUserById = async (req, res) => {
 
 const createUser = async (req, res) => {
   try {
-    const { name, email, phone, address, role } = req.body;
+    const { name, email, phone, address, role, bio, image } = req.body;
 
     // Validate required fields
     if (!name || !email || !phone || !address || !role) {
@@ -43,7 +43,7 @@ const createUser = async (req, res) => {
     console.log(`Generated UUID: ${uuid}`);
 
     // Create a new user object
-    const newUser = new User({ uuid, name, email, phone, address, role });
+    const newUser = new User({ uuid, name, email, phone, address, role, bio: bio || "", profilePicture: image || "" });
 
     // Save the user to the database
     const savedUser = await newUser.save();
@@ -59,7 +59,7 @@ const createUser = async (req, res) => {
 // Update a user by UUID
 const updateUser = async (req, res) => {
   const { uuid } = req.params;
-  const { name, email, phone, address, role } = req.body;
+  const { name, email, phone, address, role, bio, image } = req.body;
 
   try {
     const user = await User.findOne({ uuid });
@@ -73,6 +73,8 @@ const updateUser = async (req, res) => {
     if (phone) user.phone = phone;
     if (address) user.address = address;
     if (role) user.role = role;
+    if (bio) user.bio = bio || "";
+    if (image) user.image = image;
 
     // Save the updated user
     const updatedUser = await user.save();
