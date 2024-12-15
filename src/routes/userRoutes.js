@@ -8,6 +8,7 @@ const router = express.Router();
  * /api/users:
  *   get:
  *     summary: Get all users
+ *     tags: [Users]
  *     description: Retrieves a list of all users from the database
  *     responses:
  *       200:
@@ -26,6 +27,7 @@ router.get("/", userController.getUsers); // Get all users
  * /api/users/{uuid}:
  *   get:
  *     summary: Get a user by UUID
+ *     tags: [Users]
  *     description: Retrieves a single user by their unique UUID
  *     parameters:
  *       - in: path
@@ -51,6 +53,7 @@ router.get("/:uuid", userController.getUserById);
  * /api/users:
  *   post:
  *     summary: Create a new user
+ *     tags: [Users]
  *     description: Adds a new user to the database
  *     requestBody:
  *       required: true
@@ -75,6 +78,7 @@ router.post("/", validateUser(false), userController.createUser); // Create a ne
  * /api/users/{uuid}:
  *   put:
  *     summary: Update a user by UUID
+ *     tags: [Users]
  *     description: Updates a user's details using their UUID
  *     parameters:
  *       - in: path
@@ -107,6 +111,7 @@ router.put("/:uuid", validateUser(true), userController.updateUser); // Update a
  * /api/users/{uuid}:
  *   delete:
  *     summary: Delete a user by UUID
+ *     tags: [Users]
  *     description: Removes a user from the database using their UUID
  *     parameters:
  *       - in: path

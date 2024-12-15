@@ -10,6 +10,7 @@ const { connectToDatabase } = require("./src/config/db");
 const swaggerOptions = require("./src/config/swaggerOptions");
 const corsOptions = require("./src/config/corsConfig");
 const userRoutes = require("./src/routes/userRoutes");
+const blogRoutes = require("./src/routes/blogRoutes");
 
 dotenv.config(); // Load environment variables
 const app = express();
@@ -37,6 +38,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // Routes
 app.get("/", (req, res) => res.render("index"));
 app.use("/api/users", userRoutes);
+app.use("/api/blogs", blogRoutes);
 
 // Start the server and connect to MongoDB
 const startServer = async () => {

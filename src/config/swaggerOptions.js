@@ -1,4 +1,5 @@
-const userSchema = require("./userSchema");
+const blogSchema = require("./schema/blogSchema");
+const userSchema = require("./schema/userSchema");
 
 const swaggerOptions = {
   definition: {
@@ -8,16 +9,15 @@ const swaggerOptions = {
       version: "1.0.0",
       description: "API Documentation",
     },
+    tags: [
+      { name: "Users", description: "Operations related to users" },
+      { name: "Blogs", description: "Operations related to blogs" },
+    ],
     components: {
-      schemas: userSchema,
+      schemas: { ...userSchema, ...blogSchema },
     },
-    // servers: [
-    //   {
-    //     url: process.env.API_HOST || "http://localhost:3000", // Dynamically set the server URL based on the environment
-    //   },
-    // ],
   },
-  apis: ["./src/routes/*.js"], // Path to your API route files
+  apis: ["./src/routes/*.js"],
 };
 
 module.exports = swaggerOptions;
